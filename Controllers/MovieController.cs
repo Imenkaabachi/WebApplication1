@@ -26,9 +26,21 @@ namespace WebApplication1.Controllers
         [HttpPost]
         public IActionResult Add(Movie model)
         {
+            Console.WriteLine("------------------------");
+            Console.WriteLine(model.Title);
+            Console.WriteLine(model.ReleaseYear);
+            Console.WriteLine(model.Director);
+            Console.WriteLine(model.Cast);
+            Console.WriteLine(model.GenreList);
+            
+            ;
+            Console.WriteLine("------------------------");
             model.GenreList = _genService.List().Select(a => new SelectListItem { Text = a.GenreName, Value = a.Id.ToString() });
-            if (!ModelState.IsValid)
-                return View(model);
+            
+            
+            // if (!ModelState.IsValid)
+            //     return View(model);
+            
             if (model.ImageFile != null)
             {
                 var fileReult = this._fileService.SaveImage(model.ImageFile);
@@ -49,7 +61,7 @@ namespace WebApplication1.Controllers
             else
             {
                 TempData["msg"] = "Error on server side";
-                return View(model);
+            return View(model);
             }
         }
 

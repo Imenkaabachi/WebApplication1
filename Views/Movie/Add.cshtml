@@ -2,12 +2,13 @@
 @{
 
 }
-<form class="w-40" asp-action="Add" method="post" enctype="multipart/form-data">
+@using (Html.BeginForm("Add", "Movie", FormMethod.Post))
+{
     <h2 class="pb-10">Add Movie</h2>
 
     <div class="input-container">
         <label asp-for="Title" class="w-40">Title</label>
-        <input type="text" class="input" asp-for="Title">
+            @Html.TextBoxFor(m => m.Title, new { @class = "w-60" })
     </div>
     <div class="message-box pd-x-28 error">
         <span asp-validation-for="Title"> </span>
@@ -15,7 +16,12 @@
 
     <div class="input-container">
         <label asp-for="Director" class="w-40">Image</label>
-        <input type="file" asp-for="ImageFile">
+        @* <input type="file" asp-for="ImageFile"> *@
+        @* @Html.TextBoxFor(m => m.ImageFile, new { @class = "w-60" }) *@
+         @Html.TextBoxFor(m => m.ImageFile, new { type = "file", @class = "w-60" })
+        
+        
+      
     </div>
     <div class="message-box pd-x-28 error">
         <span asp-validation-for="ImageFile"> </span>
@@ -23,9 +29,11 @@
 
     <div class="input-container">
         <label asp-for="Genres" class="w-40">Genre</label>
-        <select asp-items="Model.GenreList" class="input" asp-for="Genres" multiple>
-            <option value="">--select--</option>
-        </select>
+        @* <select asp-items="Model.GenreList" class="input" asp-for="Genres" multiple> *@
+        @*     <option value="">--select--</option> *@
+        @* </select> *@
+        @Html.DropDownListFor(m => m.Genres, Model.GenreList, new { @class = "w-60" })
+        
     </div>
     <div class="message-box pd-x-28 error">
         <span asp-validation-for="Genres"> </span>
@@ -33,7 +41,7 @@
 
     <div class="input-container">
         <label asp-for="ReleaseYear" class="w-40">Released Year</label>
-        <input type="text" class="input" asp-for="ReleaseYear">
+        @Html.TextBoxFor(m => m.ReleaseYear, new { @class = "w-60" })
     </div>
     <div class="message-box pd-x-28 error">
         <span asp-validation-for="ReleaseYear"> </span>
@@ -41,7 +49,7 @@
 
     <div class="input-container">
         <label asp-for="Cast" class="w-40">Cast</label>
-        <input type="text" class="input" asp-for="Cast">
+        @Html.TextBoxFor(m => m.Cast, new { @class = "w-60" })
     </div>
     <div class="message-box pd-x-28 error">
         <span asp-validation-for="Cast"> </span>
@@ -49,7 +57,7 @@
 
     <div class="input-container">
         <label asp-for="Director" class="w-40">Director</label>
-        <input type="text" class="input" asp-for="Director">
+        @Html.TextBoxFor(m => m.Director, new { @class = "w-60" })
     </div>
     <div class="message-box pd-x-28 error">
         <span asp-validation-for="Director"> </span>
@@ -66,4 +74,4 @@
         <button class="btn btn-default" type="submit">Save</button>
         <a class="btn btn-sec" href="/Movie/MovieList">All records</a>
     </div>
-</form>
+}

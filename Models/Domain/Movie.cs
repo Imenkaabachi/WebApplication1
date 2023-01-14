@@ -18,12 +18,16 @@ namespace WebApplication1.Models.Domain
 
         public string? Cast { get; set; }
         [Required]
-
+        
         public string? Director { get; set; }
 
         [NotMapped]
         public IFormFile? ImageFile { get; set; }
 
+        [NotMapped]
+        
+        public String Genre { get; set; }
+        
         [Required]
         [NotMapped]
         public List<int>? Genres { get; set; }
