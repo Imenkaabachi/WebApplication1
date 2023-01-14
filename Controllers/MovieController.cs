@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using WebApplication1.Data.Repositories.Abstract;
 using WebApplication1.Models.Domain;
-using WebApplication1.Repositories.Abstract;
 
 namespace WebApplication1.Controllers
 {

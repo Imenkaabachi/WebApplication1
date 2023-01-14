@@ -20,17 +20,21 @@ namespace WebApplication1.Models.Domain
         [Required]
 
         public string? Director { get; set; }
-        
+
         [NotMapped]
         public IFormFile? ImageFile { get; set; }
 
         [Required]
-        [NotMapped] 
+        [NotMapped]
         public List<int>? Genres { get; set; }
-        public IEnumerable<SelectListItem>? GenreList {get;set; }
+
+        [NotMapped]
+        public IEnumerable<SelectListItem>? GenreList { get; set; }
 
         [NotMapped]
         public string? GenreNames { get; set; }
+        [NotMapped]
         public MultiSelectList? MultiGenreList { get; set; }
-    }
+       
+    } 
 }

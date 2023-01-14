@@ -1,5 +1,7 @@
-using WebApplication1.Repositories.Abstract;
-using WebApplication1.Repositories.Implementation;
+using Microsoft.EntityFrameworkCore;
+using WebApplication1.Data.Repositories.Abstract;
+using WebApplication1.Data.Repositories.Implementation;
+
 
 internal class Program
 {
@@ -9,8 +11,12 @@ internal class Program
 
         // Add services to the container.
         builder.Services.AddControllersWithViews();
-//        builder.Services.AddScoped<IGenreService, GenreService>();
-//        builder.Services.AddScoped<IFileService, FileService>();
+        builder.Services.AddRazorPages();
+        builder.Services.AddDbContext<WebApplication1.Data.DataBaseContext>(options => options.UseSqlite(
+            builder.Configuration.GetConnectionString("DefaultConnection")));
+        builder.Services.AddScoped<IGenreService, GenreService>();
+        builder.Services.AddScoped<IFileService, FileService>();
+        builder.Services.AddScoped<IMovieService, MovieService>();
 
         var app = builder.Build();
 

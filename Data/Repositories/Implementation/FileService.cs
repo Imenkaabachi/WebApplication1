@@ -1,6 +1,6 @@
-﻿using WebApplication1.Repositories.Abstract;
+﻿using WebApplication1.Data.Repositories.Abstract;
 
-namespace WebApplication1.Repositories.Implementation
+namespace WebApplication1.Data.Repositories.Implementation
 {
     public class FileService : IFileService
     {

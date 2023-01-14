@@ -1,4 +1,4 @@
-﻿namespace WebApplication1.Repositories.Abstract
+﻿namespace WebApplication1.Data.Repositories.Abstract
 {
     public interface IFileService
     {

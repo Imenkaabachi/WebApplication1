@@ -1,13 +1,13 @@
-﻿using WebApplication1.Models.Domain;
-using WebApplication1.Repositories.Abstract;
+﻿using WebApplication1.Data.Repositories.Abstract;
+using WebApplication1.Models.Domain;
 
-namespace WebApplication1.Repositories.Implementation
+namespace WebApplication1.Data.Repositories.Implementation
 {
     public class GenreService : IGenreService
     {
-        private readonly CinemaContext ctx;
+        private readonly DataBaseContext ctx;
 
-        public GenreService(CinemaContext ctx)
+        public GenreService(DataBaseContext ctx)
         {
             this.ctx = ctx;
         }
@@ -15,7 +15,7 @@ namespace WebApplication1.Repositories.Implementation
         {
             try
             {
-                ctx.Genres.Add(model);
+                ctx.Genre.Add(model);
                 ctx.SaveChanges();
                 return true;
             }
@@ -29,10 +29,10 @@ namespace WebApplication1.Repositories.Implementation
         {
             try
             {
-                var data = this.GetById(id);
+                var data = GetById(id);
                 if (data == null)
                     return false;
-                ctx.Genres.Remove(data);
+                ctx.Genre.Remove(data);
                 ctx.SaveChanges();
                 return true;
             }
@@ -44,12 +44,12 @@ namespace WebApplication1.Repositories.Implementation
 
         public Genre GetById(int id)
         {
-            return ctx.Genres.Find(id);
+            return ctx.Genre.Find(id);
         }
 
         public IQueryable<Genre> List()
         {
-            var data=ctx.Genres.AsQueryable();
+            var data = ctx.Genre.AsQueryable();
             return data;
         }
 
@@ -57,7 +57,7 @@ namespace WebApplication1.Repositories.Implementation
         {
             try
             {
-                ctx.Genres.Update(model);
+                ctx.Genre.Update(model);
                 ctx.SaveChanges();
                 return true;
             }

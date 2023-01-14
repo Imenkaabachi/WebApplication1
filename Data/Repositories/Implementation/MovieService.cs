@@ -1,14 +1,15 @@
-﻿using WebApplication1.Models.Domain;
+﻿using System.Linq;
+using WebApplication1.Data.Repositories.Abstract;
+using WebApplication1.Models.Domain;
 using WebApplication1.Models.DTO;
-using WebApplication1.Repositories.Abstract;
 
-namespace WebApplication1.Repositories.Implementation
+namespace WebApplication1.Data.Repositories.Implementation
 {
     public class MovieService : IMovieService
     {
-        private readonly CinemaContext ctx;
+        private readonly DataBaseContext ctx;
 
-        public MovieService(CinemaContext ctx)
+        public MovieService(DataBaseContext ctx)
         {
             this.ctx = ctx;
         }
@@ -16,7 +17,6 @@ namespace WebApplication1.Repositories.Implementation
         {
             try
             {
-
                 ctx.Movie.Add(model);
                 ctx.SaveChanges();
                 foreach (int genreId in model.Genres)
@@ -41,7 +41,7 @@ namespace WebApplication1.Repositories.Implementation
         {
             try
             {
-                var data = this.GetById(id);
+                var data = GetById(id);
                 if (data == null)
                     return false;
                 var movieGenres = ctx.MovieGenre.Where(a => a.MovieId == data.Id);
@@ -142,6 +142,6 @@ namespace WebApplication1.Repositories.Implementation
             return genreIds;
         }
 
-    
+
     }
 }
