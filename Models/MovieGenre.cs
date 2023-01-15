@@ -1,6 +1,6 @@
 ﻿using Microsoft.Build.Framework;
 
-namespace WebApplication1.Models.Domain
+namespace WebApplication1.Models
 {
     public class MovieGenre
     {
@@ -11,7 +11,7 @@ namespace WebApplication1.Models.Domain
         [Required]
 
         public int GenreId { get; set; }
-      
+
 
     }
 }

@@ -1,4 +1,4 @@
-﻿@model WebApplication1.Models.DTO.MovieListVm
+﻿@model MovieListVm
 @{
     Layout = "_Layout";
 }
@@ -19,7 +19,7 @@
     @foreach (var movie in Model.MovieList)
     {
         <div class="card bg-light mb-3" style="width: 250px;" onclick="window.location.href='/Home/MovieDetail?movieId=@movie.Id' ">
-            <img class="card-img-top" style="width: 250px;" src="https://cdn-2.tstatic.net/makassar/foto/bank/images/spoiler-jalan-cerita-trailer-the-davinci-code-bioskop-trans-tv-17-november-2019-thriller-misteri.jpg">
+            <img class="card-img-top" style="width: 250px;" src="/Uploads/@movie.MovieImage" src="https://cdn-2.tstatic.net/makassar/foto/bank/images/spoiler-jalan-cerita-trailer-the-davinci-code-bioskop-trans-tv-17-november-2019-thriller-misteri.jpg">
             <div class="card-body">
                 <h5 class="card-title">@movie.Title</h5>
                 <div class="card-text">

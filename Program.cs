@@ -1,6 +1,6 @@
 using Microsoft.EntityFrameworkCore;
+using WebApplication1.Data.Repositories;
 using WebApplication1.Data.Repositories.Abstract;
-using WebApplication1.Data.Repositories.Implementation;
 
 
 internal class Program
@@ -14,9 +14,9 @@ internal class Program
         builder.Services.AddRazorPages();
         builder.Services.AddDbContext<WebApplication1.Data.DataBaseContext>(options => options.UseSqlite(
             builder.Configuration.GetConnectionString("DefaultConnection")));
-        builder.Services.AddScoped<IGenreService, GenreService>();
-        builder.Services.AddScoped<IFileService, FileService>();
-        builder.Services.AddScoped<IMovieService, MovieService>();
+        builder.Services.AddScoped<IGenreRepository, GenreRepository>();
+        builder.Services.AddScoped<IFileRepository, FileRepository>();
+        builder.Services.AddScoped<IMovieRepository, MovieService>();
 
         var app = builder.Build();
 

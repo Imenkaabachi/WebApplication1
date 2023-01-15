@@ -1,6 +1,6 @@
-﻿using WebApplication1.Models.Domain;
+﻿using WebApplication1.Models;
 
-namespace WebApplication1.Data.Repositories.Abstract
+namespace WebApplication1.Data.Repositories
 {
     public interface IGenreService
     {

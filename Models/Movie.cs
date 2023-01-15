@@ -2,7 +2,7 @@
 using Microsoft.Build.Framework;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace WebApplication1.Models.Domain
+namespace WebApplication1.Models
 {
     public class Movie
     {
@@ -18,16 +18,16 @@ namespace WebApplication1.Models.Domain
 
         public string? Cast { get; set; }
         [Required]
-        
+
         public string? Director { get; set; }
 
         [NotMapped]
         public IFormFile? ImageFile { get; set; }
 
         [NotMapped]
-        
-        public String Genre { get; set; }
-        
+
+        public string Genre { get; set; }
+
         [Required]
         [NotMapped]
         public List<int>? Genres { get; set; }
@@ -39,6 +39,6 @@ namespace WebApplication1.Models.Domain
         public string? GenreNames { get; set; }
         [NotMapped]
         public MultiSelectList? MultiGenreList { get; set; }
-       
-    } 
+
+    }
 }

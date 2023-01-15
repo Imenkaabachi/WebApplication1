@@ -1,9 +1,9 @@
 ﻿using WebApplication1.Data.Repositories.Abstract;
-using WebApplication1.Models.Domain;
+using WebApplication1.Models;
 
-namespace WebApplication1.Data.Repositories.Implementation
+namespace WebApplication1.Data.Repositories
 {
-    public class GenreService : IGenreService
+    public class GenreService : IGenreRepository
     {
         private readonly DataBaseContext ctx;
 

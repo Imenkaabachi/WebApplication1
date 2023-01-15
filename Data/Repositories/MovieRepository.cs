@@ -1,11 +1,11 @@
 ﻿using System.Linq;
 using WebApplication1.Data.Repositories.Abstract;
+using WebApplication1.Models;
 using WebApplication1.Models.Domain;
-using WebApplication1.Models.DTO;
 
-namespace WebApplication1.Data.Repositories.Implementation
+namespace WebApplication1.Data.Repositories
 {
-    public class MovieService : IMovieService
+    public class MovieService : IMovieRepository
     {
         private readonly DataBaseContext ctx;
 

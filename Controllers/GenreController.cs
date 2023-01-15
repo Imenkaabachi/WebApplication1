@@ -1,13 +1,13 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using WebApplication1.Data.Repositories.Abstract;
-using WebApplication1.Models.Domain;
+using WebApplication1.Models;
 
 namespace WebApplication1.Controllers
 {
     public class GenreController : Controller
     {
-        private readonly IGenreService _genreService;
-        public GenreController(IGenreService genreService)
+        private readonly IGenreRepository _genreService;
+        public GenreController(IGenreRepository genreService)
         {
             _genreService=genreService;
         }

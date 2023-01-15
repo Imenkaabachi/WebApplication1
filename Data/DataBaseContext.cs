@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Storage;
 using System;
-using WebApplication1.Models.Domain;
+using WebApplication1.Models;
 
 
 namespace WebApplication1.Data

@@ -1,8 +1,8 @@
 ﻿using WebApplication1.Data.Repositories.Abstract;
 
-namespace WebApplication1.Data.Repositories.Implementation
+namespace WebApplication1.Data.Repositories
 {
-    public class FileService : IFileService
+    public class FileRepository : IFileRepository
     {
         public bool DeleteImage(string imageFileName)
         {

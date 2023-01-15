@@ -5,8 +5,8 @@ namespace WebApplication1.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly IMovieService _movieService;
-        public HomeController(IMovieService movieService)
+        private readonly IMovieRepository _movieService;
+        public HomeController(IMovieRepository movieService)
         {
             _movieService = movieService;
         }

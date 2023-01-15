@@ -1,16 +1,16 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using WebApplication1.Data.Repositories.Abstract;
-using WebApplication1.Models.Domain;
+using WebApplication1.Models;
 
 namespace WebApplication1.Controllers
 {
     public class MovieController : Controller
     {
-        private readonly IMovieService _movieService;
-        private readonly IFileService _fileService;
-        private readonly IGenreService _genService;
-        public MovieController(IGenreService genService, IMovieService MovieService, IFileService fileService)
+        private readonly IMovieRepository _movieService;
+        private readonly IFileRepository _fileService;
+        private readonly IGenreRepository _genService;
+        public MovieController(IGenreRepository genService, IMovieRepository MovieService, IFileRepository fileService)
         {
             _movieService = MovieService;
             _fileService = fileService;
