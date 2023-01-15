@@ -1,27 +1,30 @@
 ﻿@{
 }
+ <h2 class="">Update Genre</h2>
+<form class="" asp-action="Update" method="post">
+        <div class="input-container">
 
-<form class="w-40" asp-action="Update" method="post">
-    <h2 class="pb-10">Update Genre</h2>
-    <input type="hidden" class="input" asp-for="Id">
+            <input type="text" class="search-bar" asp-for="GenreName" placeholder="Genre name">
+        </div>
 
-    <div class="input-container">
-        <label asp-for="GenreName" class="w-40">GenreName</label>
-        <input type="text" class="input" asp-for="GenreName">
-    </div>
     <div class="message-box pd-x-28 error">
         <span asp-validation-for="GenreName"> </span>
-    </div>
+    </div
+
+
+
+
+
 
     @if (TempData["msg"] != null)
     {
-        <div class="alert mb-1">
+        <div class="alert-info">
             @TempData["msg"]
         </div>
     }
 
     <div class="input-container">
-        <button class="btn btn-default" type="submit">Save</button>
-        <a class="btn btn-sec" href="/Genre/GenreList">All records</a>
+        <button class="btn btn-success" type="submit">Save</button>
+        <a class="btn btn-light" href="/Genre/GenreList">All records</a>
     </div>
 </form>

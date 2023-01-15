@@ -1,28 +1,34 @@
 ﻿@model IEnumerable<WebApplication1.Models.Domain.Genre>
 @{
 }
+<h2>Genres</h2>
 
-<div class="tbl-container">
-    <h2>Genres</h2>
 
-    <table>
+<table class="table table-striped">
+    <thead>
         <tr>
-            <th>Name</th>
-            <th>Action</th>
+            <th scope="col">Name</th>
+            <th scope="col">Actions</th>
         </tr>
+    </thead>
+    <tbody>
         @foreach (var item in Model)
         {
             <tr>
                 <td>@item.GenreName</td>
+
                 <td>
-                    <a href="/Genre/Edit?id=@item.Id" class="btn btn-default"><i class="fa fa-edit"></i></a>
-                    <a onclick="return window.confirm('Are you sure?')" href="/Genre/Delete?id=@item.Id" class="btn btn-danger"><i class="fa fa-trash"></i></a>
+                    <a href="/Genre/Edit?id=@item.Id" class="btn btn-outline-success">Update</a>
+                    <a onclick="return window.confirm('Are you sure?')" href="/Genre/Delete?id=@item.Id" class="btn btn-outline-danger">Delete</a>
                 </td>
             </tr>
         }
+    </tbody>
+</table>
 
-    </table>
+
+
     <div class="input-container">
-        <a href="/Genre/Add" class="btn btn-sec">Back</a>
+        <a href="/Genre/Add" class="btn btn-danger">Back</a>
     </div>
 </div>

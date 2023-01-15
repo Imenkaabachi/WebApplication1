@@ -2,6 +2,7 @@
 @{
     Layout = "_Layout";
 }
+
 <section class="search-bar">
     <form method="get" asp-action="Index">
         <input type="text" name="term" placeholder="search here">
@@ -9,23 +10,27 @@
         <a class="btn btn-default" href="/Home/Index">All</a>
     </form>
 </section>
-<section class="movies">
+
+
+
+<div class="h2 mt-5">All Movies</div>
+
+<div class="card-deck">
     @foreach (var movie in Model.MovieList)
     {
-        <div class="movie-card" onclick="window.location.href='/Home/MovieDetail?movieId=@movie.Id'">
-            <div class="movie-image">
-                <img src="/Uploads/@movie.MovieImage">
-            </div>
-            <div class="movie-info">
-                <h4>@movie.Title</h4>
-                <h4>@movie.GenreNames</h4>
-                <h4>@movie.ReleaseYear</h4>
-                @* <h4>Cast : @movie.Cast</h4>
-            <h4>Director : @movie.Director</h4>*@
+        <div class="card bg-light mb-3" style="width: 250px;" onclick="window.location.href='/Home/MovieDetail?movieId=@movie.Id' ">
+            <img class="card-img-top" style="width: 250px;" src="https://cdn-2.tstatic.net/makassar/foto/bank/images/spoiler-jalan-cerita-trailer-the-davinci-code-bioskop-trans-tv-17-november-2019-thriller-misteri.jpg">
+            <div class="card-body">
+                <h5 class="card-title">@movie.Title</h5>
+                <div class="card-text">
+                    <h4>@movie.GenreNames</h4>
+                    <h4>@movie.ReleaseYear</h4>
+                </div>
             </div>
         </div>
     }
-</section>
+</div>
+
 
 <div class="pagination">
     @for (int i = 1; i <= Model.TotalPages; i++)

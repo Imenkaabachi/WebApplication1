@@ -4,7 +4,7 @@
 }
 @using (Html.BeginForm("Add", "Movie", FormMethod.Post))
 {
-    <h2 class="pb-10">Add Movie</h2>
+    <h2 class="h2">Add Movie</h2>
 
     <div class="input-container">
         <label asp-for="Title" class="w-40">Title</label>
@@ -65,13 +65,13 @@
 
     @if (TempData["msg"] != null)
     {
-        <div class="alert mb-1">
+        <div class="alert-info">
             @TempData["msg"]
         </div>
     }
 
     <div class="input-container">
-        <button class="btn btn-default" type="submit">Save</button>
-        <a class="btn btn-sec" href="/Movie/MovieList">All records</a>
+        <button class="btn btn-success" type="submit">Save</button>
+        <a class="btn btn-light" href="/Movie/MovieList">All records</a>
     </div>
 }
